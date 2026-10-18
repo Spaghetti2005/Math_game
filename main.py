@@ -53,10 +53,20 @@ def Player():
     answer = mathematical_sign()
     user = int(input("Input Your answer: "))
     if user == answer:
+        print("--------------------")
         print("Good, Your Correct")
+        print("--------------------")
     else:
+        print("--------------------")
         print("Try Again")
-
-
+        print(f"The Correct Answer is {answer}")
+        print("--------------------")
+    while True:
+        user1 = int(input("(1)Yes or (2)No\nYou want to play again?: "))
+        if user1 == 1:
+            return Player()
+        else:
+            print("Exiting")
+            break
 
 Player()
