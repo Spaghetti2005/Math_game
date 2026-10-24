@@ -21,11 +21,8 @@ def get_difficulty():
 
 def mathematical_sign():
 
-    a, b = get_difficulty() 
-    if a is None or b is None:
-        return "Invalid difficulty"
-        
-   
+    a, b = get_difficulty()
+            
     randomnumber1 = random.randint(a, b)
     randomnumber2 = random.randint(a, b)
 
@@ -48,7 +45,6 @@ def mathematical_sign():
     except ValueError:
         return "Error. Please Input Again"
 
-<<<<<<< HEAD
 
 wrong = 0
 correct = 0
@@ -76,27 +72,39 @@ while True:
 	else:
 		print("Exiting")
 		break
-=======
+
 def Player():
 
-    answer = mathematical_sign()
-    user = int(input("Input Your answer: "))
-    if user == answer:
-        print("--------------------")
-        print("Good, Your Correct")
-        print("--------------------")
-    else:
-        print("--------------------")
-        print("Try Again")
-        print(f"The Correct Answer is {answer}")
-        print("--------------------")
-    while True:
-        user1 = int(input("(1)Yes or (2)No\nYou want to play again?: "))
-        if user1 == 1:
-            return Player()
-        else:
-            print("Exiting")
+
+wrong = 0
+correct = 0
+while True:
+
+    try:
+        play1 = int(input("---------------\nPlay the game\n(1) Yes or (2) No\nChoose: "))
+        
+        if play1 == 1:
+            answer = mathematical_sign()
+            user = int(input("Input Your answer: "))
+            if user == answer:
+                correct += 1
+                print("--------------------")
+                print("Good, Your Correct")
+                print("--------------------")
+            else:
+                wrong += 1
+                print("--------------------")
+                print("Try Again")
+                print(f"The Correct Answer is {answer}")
+                print("--------------------")
+            print(f"Score - Correct: {correct}, Wrong: {wrong}")
+
+        elif play1 == 2:
+            print("Thankyou for playing.")
             break
 
+
 Player()
->>>>>>> 4b3006aac16a7baf9a5dcd86cc27b97ee50c41bb
+
+    except ValueError:
+        print("---------------\nTry again, Select\n(1) for Yes\n(2) for No.")
