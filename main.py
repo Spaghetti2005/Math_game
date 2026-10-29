@@ -3,7 +3,7 @@ import random
 def get_difficulty():
     
     try: 
-        difficulty_choice = int(input("(1) 1-10\n(2) 1-15\n(3) 1-20\nChoose: "))
+        difficulty_choice = int(input("-------------\nSelect Range\n(1) 1-10\n(2) 1-15\n(3) 1-20\nChoose: "))
         if difficulty_choice == 1:
             return 1,10
 
@@ -27,7 +27,7 @@ def mathematical_sign():
     randomnumber2 = random.randint(a, b)
 
     try:    
-        math_sign = int(input("(1) + Addition\n(2) - Subtraction\n(3) x Multiplication\n(4) ÷ Division\nChoose: "))
+        math_sign = int(input("----------------------------\nSelect Arithmetic Operations\n(1) + Addition\n(2) - Subtraction\n(3) x Multiplication\n(4) ÷ Division\nChoose: "))
         if math_sign == 1: 
             print (f"{randomnumber1} + {randomnumber2}: ?")
             return randomnumber1 + randomnumber2
@@ -49,62 +49,31 @@ def mathematical_sign():
 wrong = 0
 correct = 0
 while True:
-	
-	play1 = int(input("(1)Yes or (2)No\nChoose: "))
-	
-	if play1 == 1:
-		answer = mathematical_sign()
-		user = int(input("Input Your answer: "))
-		if user == answer:
-			correct += 1
-			print("--------------------")
-			print("Good, Your Correct")
-			print("--------------------")
+	try:
+		
+		play1 = int(input("---Play Math quiz---\n  (1)Yes or (2)No\nChoose: "))
+		
+		if play1 == 1:
+			answer = mathematical_sign()
+			user = int(input("Input Your answer: "))
+			if user == answer:
+				correct += 1
+				print("--------------------")
+				print("Good, Your Correct")
+				print("--------------------")
+			else:
+				wrong += 1
+				print("--------------------")
+				print("Try Again")
+				print(f"The Correct Answer is {answer}")
+				print("--------------------")
+			print(f"Score - Correct: {correct}, Wrong: {wrong}")
+			
+			
 		else:
-			wrong += 1
-			print("--------------------")
-			print("Try Again")
-			print(f"The Correct Answer is {answer}")
-			print("--------------------")
-		print(f"Score - Correct: {correct}, Wrong: {wrong}")
-		
-		
-	else:
-		print("Exiting")
-		break
-
-def Player():
-
-
-wrong = 0
-correct = 0
-while True:
-
-    try:
-        play1 = int(input("---------------\nPlay the game\n(1) Yes or (2) No\nChoose: "))
-        
-        if play1 == 1:
-            answer = mathematical_sign()
-            user = int(input("Input Your answer: "))
-            if user == answer:
-                correct += 1
-                print("--------------------")
-                print("Good, Your Correct")
-                print("--------------------")
-            else:
-                wrong += 1
-                print("--------------------")
-                print("Try Again")
-                print(f"The Correct Answer is {answer}")
-                print("--------------------")
-            print(f"Score - Correct: {correct}, Wrong: {wrong}")
-
-        elif play1 == 2:
-            print("Thankyou for playing.")
-            break
-
-
-Player()
-
-    except ValueError:
-        print("---------------\nTry again, Select\n(1) for Yes\n(2) for No.")
+			print("Exiting")
+			break
+	except ValueError:
+		print("---------------\nTry Again.")
+	
+			
